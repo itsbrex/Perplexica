@@ -32,3 +32,6 @@ logs/
 # Miscellaneous
 .DS_Store
 Thumbs.db
+.history
+notes
+.trunk
