@@ -7,11 +7,11 @@ import { cn } from '@/lib/utils';
 import {
   BookCopy,
   Disc3,
-  Share,
-  Volume2,
-  StopCircle,
   Layers3,
   Plus,
+  Share,
+  StopCircle,
+  Volume2,
 } from 'lucide-react';
 import Markdown from 'markdown-to-jsx';
 import Copy from './MessageActions/Copy';
@@ -55,7 +55,9 @@ const MessageBox = ({
         message.content.replace(
           regex,
           (_, number) =>
-            `<a href="${message.sources?.[number - 1]?.metadata?.url}" target="_blank" className="bg-light-secondary dark:bg-dark-secondary px-1 rounded ml-1 no-underline text-xs text-black/70 dark:text-white/70 relative">${number}</a>`,
+            `<a href="${
+              message.sources?.[number - 1]?.metadata?.url
+            }" target="_blank" className="bg-light-secondary dark:bg-dark-secondary px-1 rounded ml-1 no-underline text-xs text-black/70 dark:text-white/70 relative">${number}</a>`,
         ),
       );
     }

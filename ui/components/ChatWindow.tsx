@@ -52,14 +52,16 @@ const useSocket = (url: string, setIsReady: (ready: boolean) => void) => {
           if (
             !chatModelProviders ||
             Object.keys(chatModelProviders).length === 0
-          )
+          ) {
             return toast.error('No chat models available');
+          }
 
           if (
             !embeddingModelProviders ||
             Object.keys(embeddingModelProviders).length === 0
-          )
+          ) {
             return toast.error('No embedding models available');
+          }
 
           chatModelProvider = Object.keys(chatModelProviders)[0];
           chatModel = Object.keys(chatModelProviders[chatModelProvider])[0];
@@ -281,12 +283,10 @@ const ChatWindow = () => {
 
     const message = messages[index - 1];
 
-    setMessages((prev) => {
-      return [...prev.slice(0, messages.length > 2 ? index - 1 : 0)];
-    });
-    setChatHistory((prev) => {
-      return [...prev.slice(0, messages.length > 2 ? index - 1 : 0)];
-    });
+    setMessages((prev) => prev.slice(0, messages.length > 2 ? index - 1 : 0));
+    setChatHistory((prev) =>
+      prev.slice(0, messages.length > 2 ? index - 1 : 0),
+    );
 
     sendMessage(message.content);
   };
