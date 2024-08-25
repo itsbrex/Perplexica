@@ -36,3 +36,5 @@ Thumbs.db
 
 # Db
 db.sqlite
+.history
+notes
